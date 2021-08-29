@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    action_policy (0.5.7)
+      ruby-next-core (>= 0.11.0)
     actioncable (6.1.4.1)
       actionpack (= 6.1.4.1)
       activesupport (= 6.1.4.1)
@@ -224,10 +226,14 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.11.0)
       parser (>= 3.0.1.1)
+    rubocop-performance (1.11.5)
+      rubocop (>= 1.7.0, < 2.0)
+      rubocop-ast (>= 0.4.0)
     rubocop-rails (2.11.3)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.7.0, < 2.0)
+    ruby-next-core (0.12.0)
     ruby-progressbar (1.11.0)
     shoulda-matchers (5.0.0)
       activesupport (>= 5.2.0)
@@ -253,6 +259,7 @@ PLATFORMS
   arm64-darwin-20
 
 DEPENDENCIES
+  action_policy (~> 0.5)
   blueprinter (~> 0.25)
   bootsnap (>= 1.4.4)
   database_cleaner (~> 1.5, >= 1.5.3)
@@ -271,6 +278,8 @@ DEPENDENCIES
   rswag-api
   rswag-specs
   rswag-ui (~> 2.4)
+  rubocop
+  rubocop-performance
   rubocop-rails (~> 2.11)
   shoulda-matchers (~> 5.0)
   spring

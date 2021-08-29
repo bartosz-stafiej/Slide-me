@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.0'
 
+gem 'action_policy', '~> 0.5'
 gem 'rails', '~> 6.1.4'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
@@ -27,6 +28,8 @@ end
 
 group :development do
   gem 'rubocop-rails', '~> 2.11', require: false
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
   gem 'listen', '~> 3.3'
   gem 'spring'
 end
