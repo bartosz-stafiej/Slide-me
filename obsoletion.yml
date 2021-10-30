@@ -1,0 +1,3 @@
+renamed:
+  Layout/IndentFirstArrayElement: Layout/FirstArrayElementIndentation
+  Lint/HandleExceptions: Lint/SuppressedException
