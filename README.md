@@ -1,4 +1,4 @@
-# SLIDE.ME
+# Calendar
 
 ## URLs
 - Soon here will be staging api url
