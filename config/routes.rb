@@ -1,5 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  constraints(-> { ENV['SWAGGER_UI_ENABLED'] == 'true' }) do
+    namespace :docs do
+      mount Rswag::Ui::Engine, at: 'api'
+      mount Rswag::Api::Engine, at: 'api'
+    end
+  end
+
+  devise_for :users
 end

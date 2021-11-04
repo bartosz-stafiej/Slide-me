@@ -12,6 +12,7 @@ AllCops:
     - bin/**/*
     - node_modules/**/*
     - vendor/**/*
+    - config/initializers/*
 
 Metrics/BlockLength:
   Exclude:
