@@ -2,7 +2,9 @@
 
 module API
   module V1
-    class ErrorsController < ActionController::Api
+    class ErrorsController < ActionController::API
+      include ErrorsHandler
+
       def route_not_found
         message = I18n.t('errors.api.not_found.route',
                          method: request.method,
