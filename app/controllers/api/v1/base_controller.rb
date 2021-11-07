@@ -2,7 +2,7 @@
 
 module API
   module V1
-    class BaseController < ApplicationController::API
+    class BaseController < ApplicationController::Api
       include ErrorsHandler
     end
   end
