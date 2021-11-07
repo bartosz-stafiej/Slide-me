@@ -10,7 +10,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     # TODO: insert here your frontend app URL
     if Rails.env.production?
-      origins '*'
+      origins 'https://slide-me-ui.herokuapp.com'
     else
       origins 'http://localhost:3000'
     end
