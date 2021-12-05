@@ -2,7 +2,7 @@
 
 module Controllers
   module Errors
-    module API
+    module Api
       class Conflict < BaseError
         DEFAULT_MESSAGE = I18n.t('errors.api.conflict.default_message')
         STATUS = 409

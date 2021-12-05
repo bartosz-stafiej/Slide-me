@@ -5,6 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.0'
 
+gem 'action_policy', '~> 0.6.0'
 gem 'blueprinter', '~> 0.25'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise', '~> 4.8'
@@ -12,6 +13,7 @@ gem 'devise-jwt', '~> 0.9.0'
 gem 'dry-equalizer', '~> 0.3.0'
 gem 'dry-validation', '~> 1.6.0'
 gem 'multi_json', '~> 1.11', '>= 1.11.2'
+gem 'pagy', '~> 4.11'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rack-cors', '~> 0.4.0'

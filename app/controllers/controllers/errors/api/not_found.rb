@@ -2,7 +2,7 @@
 
 module Controllers
   module Errors
-    module API
+    module Api
       class NotFound < BaseError
         DEFAULT_MESSAGE = I18n.t('errors.api.not_found.default_message')
         STATUS = 404

@@ -10,4 +10,8 @@ class User < ApplicationRecord
          :rememberable,
          :validatable,
          jwt_revocation_strategy: JwtDenylist
+
+  def admin?
+    type == 'Admin'
+  end
 end

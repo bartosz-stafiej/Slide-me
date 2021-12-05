@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "required": [
+    "categories"
+  ],
+  "properties": {
+    "categories": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "$ref": "#/components/schemas/category_schema/properties/category"
+      }
+    }
+  }
+}

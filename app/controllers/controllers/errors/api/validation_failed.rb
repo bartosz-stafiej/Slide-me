@@ -2,7 +2,7 @@
 
 module Controllers
   module Errors
-    module API
+    module Api
       class ValidationFailed < BaseError
         DEFAULT_MESSAGE = I18n.t('errors.api.validation_failed.default_message')
         DEFAULT_DETAILS = {}.freeze
