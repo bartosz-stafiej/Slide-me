@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require 'constants/empty'
+
+def parse_swagger_schema(name, version: 'v1')
+  JSON.parse(File.read("swagger/#{version}/schemas/#{name}.json"))
+end
 
 RSpec.configure do |config|
   # Specify a root folder where Swagger JSON files are generated
@@ -24,14 +29,27 @@ RSpec.configure do |config|
       paths: {},
       servers: [
         {
-          url: 'https://{defaultHost}',
-          variables: {
-            defaultHost: {
-              default: 'www.example.com'
-            }
-          }
+          url: 'https://slide-me.herokuapp.com/',
+          description: 'Staging'
+        },
+        {
+          url: 'http://localhost:3000/',
+          description: 'Localhost'
         }
-      ]
+      ],
+      components: {
+        securitySchemes: {
+          bearer_auth: {
+            type: 'http',
+            scheme: 'bearer'
+          }
+        },
+        schemas: {
+          category_schema: parse_swagger_schema('category_schema'),
+          categories_schema: parse_swagger_schema('categories_schema'),
+          error_schema: parse_swagger_schema('error_schema')
+        }
+      }
     }
   }
 
@@ -40,4 +58,22 @@ RSpec.configure do |config|
   # the key, this may want to be changed to avoid putting yaml in json files.
   # Defaults to json. Accepts ':json' and ':yaml'.
   config.swagger_format = :yaml
+
+  config.after do |example|
+    next if example.metadata[:example_response] == false ||
+            example.metadata[:response].nil? ||
+            example.metadata[:operation][:produces].nil? ||
+            response.body == Constants::Empty::STRING
+
+    example.metadata[:response][:content] = {
+      example.metadata[:operation][:produces].first => {
+        schema: respond_to?(:example_schema) ? example_schema : example.metadata[:response][:schema],
+        examples: {
+          example.metadata[:example_group][:description] => {
+            value: JSON.parse(response.body, symbolize_names: true)
+          }
+        }
+      }
+    }
+  end
 end

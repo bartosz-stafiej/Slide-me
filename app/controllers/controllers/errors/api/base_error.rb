@@ -2,11 +2,11 @@
 
 module Controllers
   module Errors
-    module API
+    module Api
       class BaseError < StandardError
         attr_reader :status
 
-        def initlize(message, status)
+        def initialize(message, status)
           super(message)
           @status = status
         end

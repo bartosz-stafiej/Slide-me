@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module API
+module Api
   module V1
     class ErrorsController < ActionController::API
       include ErrorsHandler
@@ -10,7 +10,7 @@ module API
                          method: request.method,
                          url: request.original_fullpath)
 
-        raise Controller::Errors::API::NotFound, message
+        raise Controller::Errors::Api::NotFound, message
       end
     end
   end

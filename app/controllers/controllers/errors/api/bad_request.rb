@@ -2,7 +2,7 @@
 
 module Controllers
   module Errors
-    module API
+    module Api
       class BadRequest < BaseError
         DEFAULT_MESSAGE = I18n.t('errors.api.bad_request.default_message')
         STATUS = 400

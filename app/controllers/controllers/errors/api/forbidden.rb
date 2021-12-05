@@ -2,7 +2,7 @@
 
 module Controllers
   module Errors
-    module API
+    module Api
       class Forbidden < BaseError
         DEFAULT_MESSAGE = I18n.t('errors.api.forbidden.default_message')
         STATUS = 403
