@@ -8,6 +8,11 @@ en:
       rules:
         name: 
           taken: 'is taken'
+  organizations:
+    create:
+      rules:
+        name:
+          taken: 'is taken'
   
   errors:
     api:
