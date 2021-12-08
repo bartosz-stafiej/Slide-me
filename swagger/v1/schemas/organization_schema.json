@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "required": [
+      "organization"
+    ],
+    "properties": {
+      "category": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "identifier",
+          "created_at",
+          "updated_at"
+        ],
+        "properties": {
+          "id": { "type": "integer" },
+          "name": {"type": "string" },
+          "identifier": { "type": "string" },
+          "created_at": { "type": "string", "format": "date" },
+          "updated_at": { "type": "string", "format": "date" }
+        }
+      }
+    }
+  }

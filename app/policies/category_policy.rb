@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class CategoryPolicy < ApplicationPolicy
-  authorize :user
-
   def create?
     user.admin?
   end

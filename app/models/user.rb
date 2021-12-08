@@ -11,6 +11,10 @@ class User < ApplicationRecord
          :validatable,
          jwt_revocation_strategy: JwtDenylist
 
+  belongs_to :organization,
+             inverse_of: :organization_members,
+             optional: true
+
   def admin?
     type == 'Admin'
   end
