@@ -45,11 +45,12 @@ RSpec.configure do |config|
           }
         },
         schemas: {
+          address_schema: parse_swagger_schema('address_schema'),
           category_schema: parse_swagger_schema('category_schema'),
           categories_schema: parse_swagger_schema('categories_schema'),
           error_schema: parse_swagger_schema('error_schema'),
-          organization_schema: parse_swagger_schema('organization_schema')
-
+          organization_schema: parse_swagger_schema('organization_schema'),
+          organizations_schema: parse_swagger_schema('organizations_schema')
         }
       }
     }

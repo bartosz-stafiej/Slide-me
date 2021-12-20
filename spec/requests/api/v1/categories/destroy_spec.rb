@@ -14,7 +14,8 @@ RSpec.describe 'api/v1/categories#destroy', type: :request do
       parameter name: :id, in: :path, type: :integer
 
       response(204, 'successful') do
-        let!(:admin) { create(:admin) }
+        let!(:admin_role) { create(:admin_role, user: admin) }
+        let(:admin) { create(:admin) }
         let(:Authorization) { 'Bearer token' }
         let(:category) { create(:category) }
         let(:id) { category.id }
@@ -38,6 +39,7 @@ RSpec.describe 'api/v1/categories#destroy', type: :request do
       end
 
       response(404, 'not_found') do
+        let!(:admin_role) { create(:admin_role, user: admin) }
         let(:admin) { create(:admin) }
         let(:Authorization) { 'Bearer token' }
         let(:input) { nil }

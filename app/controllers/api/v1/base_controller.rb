@@ -28,7 +28,8 @@ module Api
 
       def auth_context
         {
-          user: current_user
+          user: current_user,
+          organization: @organization
         }
       end
 
@@ -37,6 +38,10 @@ module Api
         raise Controllers::Errors::Api::ValidationFailed, result.errors.to_h if result.failure?
 
         result
+      end
+
+      def me?
+        params[:me_scope] == true
       end
     end
   end

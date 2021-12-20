@@ -2,14 +2,14 @@
 
 class CategoryPolicy < ApplicationPolicy
   def create?
-    user.admin?
+    at_least_admin?
   end
 
   def update?
-    user.admin?
+    at_least_admin?
   end
 
   def destroy?
-    user.admin?
+    at_least_admin?
   end
 end

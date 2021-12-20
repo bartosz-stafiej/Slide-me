@@ -1,0 +1,15 @@
+{
+    "type": "object",
+    "required": [
+      "organizations"
+    ],
+    "properties": {
+      "organizations": {
+        "type": "array",
+        "minItems": 0,
+        "items": {
+          "$ref": "#/components/schemas/organization_schema/properties/organization"
+        }
+      }
+    }
+  }

@@ -13,7 +13,7 @@ shared_examples 'not found response' do |klass:|
 
     run_test! do |response|
       json = parse(response.body)
-      expect(json['error']).to eq(expected_message)
+      expect(json['error']).to include(expected_message)
     end
   end
 end

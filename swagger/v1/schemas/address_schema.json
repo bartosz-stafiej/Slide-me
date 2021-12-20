@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "required": [
+      "address"
+    ],
+    "properties": {
+      "address": {
+        "type": "object",
+        "required": [
+          "id",
+          "address_line",
+          "city",
+          "country",
+          "post_code"
+        ],
+        "properties": {
+          "id": { "type": "integer" },
+          "address_line": { "type": "string" },
+          "city": { "type": "string" },
+          "country": { "type": "string" },
+          "post_code": { "type": "string" }
+        }
+      }
+    }
+}
