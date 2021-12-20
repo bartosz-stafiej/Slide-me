@@ -27,7 +27,8 @@ RSpec.describe 'api/v1/categories#create', type: :request do
                 }
 
       response(201, 'successful') do
-        let!(:admin) { create(:admin) }
+        let!(:admin_role) { create(:admin_role, user: admin) }
+        let(:admin) { create(:admin) }
         let(:Authorization) { 'Bearer token' }
         let(:input) { attributes_for(:category) }
 
@@ -57,11 +58,12 @@ RSpec.describe 'api/v1/categories#create', type: :request do
       end
 
       response(422, 'validation failed') do
-        let(:user) { create(:admin) }
+        let!(:admin_role) { create(:admin_role, user: admin) }
+        let(:admin) { create(:admin) }
         let(:Authorization) { 'Bearer token' }
         let(:valid_input) { attributes_for(:category) }
 
-        before { sign_in(user) }
+        before { sign_in(admin) }
 
         it_behaves_like 'invalid field', description: 'when name is missing' do
           let(:key) { [:name] }

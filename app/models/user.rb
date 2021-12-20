@@ -11,11 +11,37 @@ class User < ApplicationRecord
          :validatable,
          jwt_revocation_strategy: JwtDenylist
 
-  belongs_to :organization,
-             inverse_of: :organization_members,
-             optional: true
+  has_many :created_categories,
+           class_name: :Category,
+           dependent: :nullify,
+           foreign_key: :creator_id,
+           inverse_of: :creator
 
-  def admin?
-    type == 'Admin'
-  end
+  has_many :created_memberships,
+           class_name: :OrganizationMembership,
+           inverse_of: :created_by,
+           dependent: :nullify
+
+  has_many :created_roles,
+           class_name: :Role,
+           inverse_of: :created_by,
+           dependent: :nullify
+
+  has_many :roles_in_organization_created,
+           class_name: :RoleInOrganization,
+           inverse_of: :added_by,
+           dependent: :nullify
+
+  has_many :organization_memberships,
+           inverse_of: :user,
+           dependent: :destroy
+
+  has_many :organizations,
+           through: :organization_memberships,
+           inverse_of: :users,
+           dependent: :nullify
+
+  has_many :roles,
+           inverse_of: :user,
+           dependent: :destroy
 end

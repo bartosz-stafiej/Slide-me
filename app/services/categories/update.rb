@@ -2,16 +2,16 @@
 
 module Categories
   class Update
-    def call(course:, data:)
-      update_course(course, data)
-      Services::Result.new(output: course)
+    def call(category:, data:)
+      update_category(category, data)
+      Services::Result.new(output: category)
     end
 
     private
 
-    def update_course(course, data)
-      course.update!(data)
-      course
+    def update_category(category, data)
+      category.update!(data)
+      category
     end
   end
 end

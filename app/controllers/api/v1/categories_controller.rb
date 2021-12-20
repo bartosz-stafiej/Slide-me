@@ -28,12 +28,12 @@ module Api
       def update
         authorize! Category
 
-        course = Category.find(params[:id])
+        category = Category.find(params[:id])
         contract = Categories::UpdateContract.new
         validation_results = validate!(contract)
 
         updator = Categories::Update.new
-        result = updator.call(course: course,
+        result = updator.call(category: category,
                               data: validation_results.to_h)
 
         render json: CategoryBlueprint.render(result.output, root: :category)

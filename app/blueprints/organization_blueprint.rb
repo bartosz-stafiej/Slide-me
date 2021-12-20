@@ -7,4 +7,6 @@ class OrganizationBlueprint < Blueprinter::Base
          :created_at,
          :identifier,
          :updated_at
+
+  association :address, blueprint: AddressBlueprint
 end

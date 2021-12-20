@@ -5,8 +5,12 @@ class Organization < ApplicationRecord
           as: :addressable,
           dependent: :destroy
 
-  has_many :organization_members,
-           class_name: :User,
+  has_many :organization_memberships,
            inverse_of: :organization,
+           dependent: :destroy
+
+  has_many :users,
+           through: :organization_memberships,
+           inverse_of: :organizations,
            dependent: :nullify
 end

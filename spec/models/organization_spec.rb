@@ -15,9 +15,9 @@ RSpec.describe Organization, type: :model do
   it { should have_one(:address) }
 
   it {
-    should have_many(:organization_members)
-      .class_name(:User)
-      .inverse_of(:organization)
+    should have_many(:users)
+      .through(:organization_memberships)
+      .inverse_of(:organizations)
       .dependent(:nullify)
   }
 end

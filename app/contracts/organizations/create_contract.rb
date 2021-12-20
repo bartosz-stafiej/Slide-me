@@ -9,6 +9,8 @@ module Organizations
 
     json do
       required(:name).filled(:string, max_size?: NAME_MAX_LENGTH)
+      required(:address).hash(Addresses::Schemas::Create::JSON)
+
       optional(:identifier).filled(:string, format?: IDENTIFIER_FORMAT)
     end
 

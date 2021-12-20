@@ -4,7 +4,7 @@
       "organization"
     ],
     "properties": {
-      "category": {
+      "organization": {
         "type": "object",
         "required": [
           "id",
@@ -22,4 +22,4 @@
         }
       }
     }
-  }
+}

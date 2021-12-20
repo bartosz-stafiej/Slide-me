@@ -26,13 +26,14 @@ RSpec.describe 'api/v1/categories#update', type: :request do
                 }
 
       response(200, 'successful') do
-        schema '$ref': '#/components/schemas/category_schema'
-
-        let!(:id) { category.id }
+        let!(:admin_role) { create(:admin_role, user: admin) }
         let(:category) { create(:category, creator: admin) }
         let(:admin) { create(:admin) }
         let(:Authorization) { 'Bearer token' }
         let(:input) { { name: 'New Category' } }
+        let(:id) { category.id }
+
+        schema '$ref': '#/components/schemas/category_schema'
 
         before { sign_in(admin) }
 
@@ -55,6 +56,7 @@ RSpec.describe 'api/v1/categories#update', type: :request do
       end
 
       response(404, 'not_found') do
+        let!(:admin_role) { create(:admin_role, user: admin) }
         let(:admin) { create(:admin) }
         let(:Authorization) { 'Bearer token' }
         let(:input) { nil }
