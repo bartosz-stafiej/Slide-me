@@ -11,7 +11,7 @@ RSpec.describe Category, type: :model do
 
   it {
     should belong_to(:creator)
-      .class_name(:Admin)
+      .class_name(:User)
       .inverse_of(:created_categories)
       .optional
   }

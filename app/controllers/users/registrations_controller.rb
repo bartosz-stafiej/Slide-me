@@ -13,7 +13,7 @@ module Users
     end
 
     def register_success
-      render json: { message: 'Signed up sucessfully.' }
+      render json: { message: I18n.t('devise.registrations.signed_up') }
     end
 
     def register_failed
