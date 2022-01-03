@@ -46,4 +46,8 @@ class User < ApplicationRecord
   has_many :roles,
            inverse_of: :user,
            dependent: :destroy
+
+  has_one :address,
+          as: :addressable,
+          dependent: :destroy
 end
